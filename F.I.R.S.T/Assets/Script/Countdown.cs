@@ -22,7 +22,6 @@ public class Countdown : MonoBehaviour {
     {
         counterText = 60;
         gameOverPannel = GameObject.Find("GameOverPannel");
-        text.text = "1:00";
         half = 31;
         endTimer = 5;
         gameOverPannel.SetActive(false);
