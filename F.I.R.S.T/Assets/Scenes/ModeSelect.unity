@@ -941,7 +941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a46e80deea381fa4788cad3516eba41d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderValue: {fileID: 0}
+  sliderValue: {fileID: 1150132138}
 --- !u!1001 &1174723027
 PrefabInstance:
   m_ObjectHideFlags: 0
