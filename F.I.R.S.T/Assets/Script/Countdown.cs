@@ -55,12 +55,12 @@ public class Countdown : MonoBehaviour {
     {
         if (counterText == half)
         {
-            EditorApplication.Beep();
+            //EditorApplication.Beep();
         }
         if (counterText == endTimer && counterText != 0)
         {
              endTimer -= 1;
-            EditorApplication.Beep();
+            //EditorApplication.Beep();
         }
         else if (counterText == 0)
         {

@@ -26,4 +26,14 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene("ModeSelect");
     }
+
+    public void UITest()
+    {
+        SceneManager.LoadScene("UIPointerTest");
+    }
+
+    public void PhysicalTest()
+    {
+        SceneManager.LoadScene("PhysicalPointerTest");
+    }
 }
