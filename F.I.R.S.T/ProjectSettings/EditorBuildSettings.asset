@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/UIPointerTest.unity
     guid: 6f6d71bf57ac76d468adc12ff3eb6294
   - enabled: 1
+    path: Assets/Scenes/Physics2.unity
+    guid: 365dce03a5c4be04eb0a8b3c4a70535f
+  - enabled: 0
     path: Assets/Scenes/PhysicalPointerTest.unity
     guid: c20c34b43e24a4c4c99762d108ab19ea
   m_configObjects: {}

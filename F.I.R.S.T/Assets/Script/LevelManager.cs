@@ -34,6 +34,6 @@ public class LevelManager : MonoBehaviour
 
     public void PhysicalTest()
     {
-        SceneManager.LoadScene("PhysicalPointerTest");
+        SceneManager.LoadScene("Physics2");
     }
 }

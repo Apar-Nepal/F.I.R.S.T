@@ -1,60 +1,110 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PhysicsPointer : MonoBehaviour
 {
-    public float defaultLength = 3.0f;
-    public GameObject Dot;
 
-    LineRenderer lineRenderer = null;
+    public float defaultLength = 4.0f;
+    public GameObject dot;
+
+    private LineRenderer lineRenderer = null;
 
     private void Awake()
     {
-        lineRenderer = this.GetComponent<LineRenderer>();
+        lineRenderer = GetComponent<LineRenderer>();
     }
 
     private void Update()
     {
-        
-        UpdateLength();
-        
+        UpdateLine();
     }
 
-    private void UpdateLength()
+    private void UpdateLine()
     {
-        lineRenderer.SetPosition(0, this.transform.position);
-        lineRenderer.SetPosition(1, CalculatedEnd());
-    }
+        // default value or lengght
+        
 
-    Vector3 CalculatedEnd()
-    {
-        RaycastHit hit = CreatedFowardRaycast();
-        Vector3 endPosiotion = DefaultEnd(defaultLength);
+        // create raycast
+        RaycastHit hit = CreateRaycast(defaultLength);
 
-        Dot.transform.position = endPosiotion;
+        // default length
+        Vector3 endPosition = transform.position + (transform.forward * defaultLength);
+
+        // or based on hit
         if (hit.collider)
         {
-            endPosiotion = hit.point;
+            endPosition = hit.point;
         }
 
 
-        return endPosiotion;
+        // set position of the dot
+        dot.transform.position = endPosition;
+
+        // posiont of the line renderer
+        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(1, endPosition);
     }
 
-    RaycastHit CreatedFowardRaycast()
+    private RaycastHit CreateRaycast(float length)
     {
         RaycastHit hit;
         Ray ray = new Ray(transform.position, transform.forward);
-
         Physics.Raycast(ray, out hit, defaultLength);
+
         return hit;
     }
 
-    private Vector3 DefaultEnd(float length)
-    {
-        return transform.position + (transform.forward * length);
-    }
+
+
+    //public float defaultLength = 3.0f;
+    //public GameObject Dot;
+
+    //LineRenderer lineRenderer = null;
+
+    //private void Awake()
+    //{
+    //    lineRenderer = this.GetComponent<LineRenderer>();
+    //}
+
+    //private void Update()
+    //{
+
+    //    UpdateLength();
+
+    //}
+
+    //private void UpdateLength()
+    //{
+    //    lineRenderer.SetPosition(0, this.transform.position);
+    //    lineRenderer.SetPosition(1, CalculatedEnd());
+    //}
+
+    //Vector3 CalculatedEnd()
+    //{
+    //    RaycastHit hit = CreatedFowardRaycast();
+    //    Vector3 endPosiotion = DefaultEnd(defaultLength);
+
+    //    Dot.transform.position = endPosiotion;
+    //    if (hit.collider)
+    //    {
+    //        endPosiotion = hit.point;
+    //    }
+
+
+    //    return endPosiotion;
+    //}
+
+    //RaycastHit CreatedFowardRaycast()
+    //{
+    //    RaycastHit hit;
+    //    Ray ray = new Ray(transform.position, transform.forward);
+
+    //    Physics.Raycast(ray, out hit, defaultLength);
+    //    return hit;
+    //}
+
+    //private Vector3 DefaultEnd(float length)
+    //{
+    //    return transform.position + (transform.forward * length);
+    //}
 }
