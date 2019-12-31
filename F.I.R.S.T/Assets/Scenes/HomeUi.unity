@@ -491,8 +491,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: F.I.R.S.T
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
-  m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 00f141a4eeb3b6f458d9155c4ed0dd83, type: 2}
+  m_sharedMaterial: {fileID: 21789503801058596, guid: 00f141a4eeb3b6f458d9155c4ed0dd83,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -534,7 +535,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -565,7 +566,7 @@ MonoBehaviour:
     linkCount: 0
     lineCount: 1
     pageCount: 1
-    materialCount: 1
+    materialCount: 2
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -601,7 +602,7 @@ GameObject:
   - component: {fileID: 2065458860}
   - component: {fileID: 2065458859}
   m_Layer: 0
-  m_Name: TMP SubMeshUI [Heala___ SDF Material + LiberationSans SDF Atlas]
+  m_Name: TMP SubMeshUI [Firstaid SDF Material + LiberationSans SDF Atlas]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
