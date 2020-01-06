@@ -127,7 +127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &23358946
 Transform:
   m_ObjectHideFlags: 0
@@ -1245,6 +1245,16 @@ PrefabInstance:
       propertyPath: inputModue
       value: 
       objectReference: {fileID: 2061681175}
+    - target: {fileID: 5234673841589662843, guid: 673396c6c4fda0244bbca2116c71dc3e,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5234673841589662843, guid: 673396c6c4fda0244bbca2116c71dc3e,
+        type: 3}
+      propertyPath: field of view
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5234673841589662845, guid: 673396c6c4fda0244bbca2116c71dc3e,
         type: 3}
       propertyPath: m_LocalPosition.x
