@@ -672,7 +672,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 20, z: 1}
+  m_Size: {x: 25, y: 25, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &771496647
 MonoBehaviour:
@@ -881,7 +881,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -142.6}
+  m_AnchoredPosition: {x: 0, y: -154.6}
   m_SizeDelta: {x: 113.52, y: 38.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &954833740
@@ -964,7 +964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &967281505
 RectTransform:
   m_ObjectHideFlags: 0
@@ -981,7 +981,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -74.399994, y: 30}
+  m_AnchoredPosition: {x: -110.8, y: 55.6}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &967281506
@@ -1572,7 +1572,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 310980438}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.3261439
+  m_Size: 0.16307199
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1929,7 +1929,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -87.1, y: 62.6}
+  m_AnchoredPosition: {x: -87.09998, y: 62.6}
   m_SizeDelta: {x: 534.12, y: 139.8}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1303137162
@@ -2006,7 +2006,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 20, z: 1}
+  m_Size: {x: 25, y: 25, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1305075227
 MonoBehaviour:
@@ -2594,7 +2594,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -30.299984, y: 30}
+  m_AnchoredPosition: {x: -66.70001, y: 55.59999}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &1777772401
@@ -3513,7 +3513,7 @@ Camera:
   m_GameObject: {fileID: 3259213375569572258}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 0.019607844}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
