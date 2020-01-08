@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 public class AnimationController : MonoBehaviour
 {
@@ -13,11 +15,14 @@ public class AnimationController : MonoBehaviour
     // animators
     Animator responderAnim;
     Animator victimAnim;
-
-
+    
     // Colliders
     public GameObject headAnchor;
+    public bool headAnchorbool = false;
     public GameObject chestAnchor;
+    public bool chestAnchorBool = false;
+
+    public TextMeshPro instructionText;
 
     private void Start()
     {
@@ -28,8 +33,11 @@ public class AnimationController : MonoBehaviour
         // only head clickable initially
         chestAnchor.GetComponent<Button>().enabled = false;
         headAnchor.GetComponent<Button>().enabled = true;
+        headAnchorbool = true;
     }
 
+
+    #region CHeckBreathing
     public void CheckBreathing ()
     {
         responderAnim.SetTrigger("checkBreathing");
@@ -44,13 +52,26 @@ public class AnimationController : MonoBehaviour
     IEnumerator WaitFOrHeadAnimation()
     {
         yield return new WaitForSeconds(9);
-        chestAnchor.GetComponent<Button>().enabled = true;
+        instructionText.text = "Start mouth to mouth Resuscitation ";
+        StartCoroutine(WaitForResuscitation());
     }
 
+    IEnumerator WaitForResuscitation()
+    {
+        yield return new WaitForSeconds(3);
+        instructionText.text = "Click on chest to start CPR";
+        chestAnchor.GetComponent<Button>().enabled = true;
+        chestAnchorBool = true;
+        headAnchorbool = false;
+    }
+    #endregion
+
+
+    #region CPR
     public void StartCPR ()
     {
         responderAnim.SetTrigger("chestPressure");
         victimAnim.SetTrigger("chestPressure");
-    }        
-    
+    }
+    #endregion
 }
