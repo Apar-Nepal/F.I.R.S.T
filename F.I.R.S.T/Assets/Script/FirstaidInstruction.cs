@@ -40,6 +40,13 @@ public class FirstaidInstruction : MonoBehaviour
         responderTshirt.GetComponent<SkinnedMeshRenderer>().enabled = true;
         victimModel.GetComponent<SkinnedMeshRenderer>().enabled = true;
 
-        instructionText.text = "click on head to check heartrate of the patient";
+        instructionText.text = "Call emergency on 112 for ambulance";
+        StartCoroutine(CheckHeartbeat());
+    }
+
+    IEnumerator CheckHeartbeat()
+    {
+        yield return new WaitForSeconds(3);
+        instructionText.text = ("press/trigger on chest to check to check heartbeat. If CPR is needed get ready for CPR by clasping hand over chest area");
     }
 }

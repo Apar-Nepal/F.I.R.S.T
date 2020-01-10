@@ -12,6 +12,9 @@ public class AnimationController : MonoBehaviour
     public GameObject responder;
     public GameObject victim;
 
+    // Button Click counter
+    int counter;
+
     // animators
     Animator responderAnim;
     Animator victimAnim;
@@ -29,10 +32,11 @@ public class AnimationController : MonoBehaviour
         responderAnim = responder.GetComponent<Animator>();
         victimAnim = victim.GetComponent<Animator>();
 
+        counter = 0;
 
         // only head clickable initially
-        chestAnchor.GetComponent<Button>().enabled = false;
-        headAnchor.GetComponent<Button>().enabled = true;
+        chestAnchor.GetComponent<Button>().enabled = true;
+        // headAnchor.GetComponent<Button>().enabled = true;
         headAnchorbool = true;
     }
 
@@ -40,21 +44,31 @@ public class AnimationController : MonoBehaviour
     #region CHeckBreathing
     public void CheckBreathing ()
     {
-        responderAnim.SetTrigger("checkBreathing");
+        if (counter == 0)
+        {
+            responderAnim.SetTrigger("checkBreathing");
 
-        // disable click action on head
-        headAnchor.GetComponent<Button>().enabled = false;
+            counter = 1;
 
-        // start couroutine
-        StartCoroutine(WaitFOrHeadAnimation());
+            // disable click action on head
+            headAnchor.GetComponent<Button>().enabled = false;
+
+            // start couroutine
+            StartCoroutine(WaitForResuscitation());
+        }
+        else
+        {
+            StartCPR();
+        }
+        
     }
 
-    IEnumerator WaitFOrHeadAnimation()
-    {
-        yield return new WaitForSeconds(9);
-        instructionText.text = "Start mouth to mouth Resuscitation ";
-        StartCoroutine(WaitForResuscitation());
-    }
+    //IEnumerator WaitFOrHeadAnimation()
+    //{
+    //    yield return new WaitForSeconds(9);
+    //    instructionText.text = "Start mouth to mouth Resuscitation ";
+    //    StartCoroutine(WaitForResuscitation());
+    //}
 
     IEnumerator WaitForResuscitation()
     {
@@ -72,6 +86,15 @@ public class AnimationController : MonoBehaviour
     {
         responderAnim.SetTrigger("chestPressure");
         victimAnim.SetTrigger("chestPressure");
+
+
+        StartCoroutine(StopCpr());
     }
     #endregion
+
+    IEnumerator StopCpr()
+    {
+        // stops the cpr
+        yield return new WaitForSeconds(30);
+    }
 }
