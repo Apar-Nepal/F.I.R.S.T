@@ -12,28 +12,27 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("Home");
     }
 
-    public void ModeSelect()
+    public void DrowningCPR()
     {
-        SceneManager.LoadScene("ModeSelect");
+        SceneManager.LoadScene("DrowningCPR");
     }
 
-    public void Snake()
-    {
-        SceneManager.LoadScene("Snake");
-    }
+    //public void Snake()
+    //{
+    //    SceneManager.LoadScene("Snake");
+    //}
 
-    public void PreviousScene()
-    {
-        SceneManager.LoadScene("ModeSelect");
-    }
+    //public void PreviousScene()
+    //{
+    //    SceneManager.LoadScene("ModeSelect");
+    //}
 
-    public void UITest()
-    {
-        SceneManager.LoadScene("UIPointerTest");
-    }
-
-    public void PhysicalTest()
-    {
-        SceneManager.LoadScene("Physics2");
-    }
+   
+    //private void Update()
+    //{
+    //    if (OVRInput.GetDown(OVRInput.Button.Back))  
+    //    {
+    //        Application.Quit();
+    //    }
+    //}
 }
