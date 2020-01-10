@@ -17,6 +17,7 @@ public class FirstaidInstruction : MonoBehaviour
     #region Instruction
     public TextMeshPro instructionText;
     public GameObject drowningImage;
+    public GameObject m_CPRHandPostion;
     #endregion
 
     void Start()
@@ -25,6 +26,8 @@ public class FirstaidInstruction : MonoBehaviour
         responderPants.GetComponent<SkinnedMeshRenderer>().enabled = false;
         responderTshirt.GetComponent<SkinnedMeshRenderer>().enabled = false;
         victimModel.GetComponent<SkinnedMeshRenderer>().enabled = false;
+
+        m_CPRHandPostion.GetComponent<Image>().enabled = false;
 
         //start coroutine
         StartCoroutine(DrowningImage());
@@ -47,6 +50,9 @@ public class FirstaidInstruction : MonoBehaviour
     IEnumerator CheckHeartbeat()
     {
         yield return new WaitForSeconds(3);
-        instructionText.text = ("press/trigger on chest to check to check heartbeat. If CPR is needed get ready for CPR by clasping hand over chest area");
+        instructionText.text = ("press/trigger on chest to check to check heartbeat. If CPR is needed get ready for CPR by clasping hand over chest area as shown.");
+
+        // display image for CPR hand postion
+        m_CPRHandPostion.GetComponent<Image>().enabled = true;
     }
 }

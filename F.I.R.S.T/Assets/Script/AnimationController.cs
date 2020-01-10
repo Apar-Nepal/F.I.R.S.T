@@ -11,6 +11,8 @@ public class AnimationController : MonoBehaviour
     // GameObjects that contains the animators
     public GameObject responder;
     public GameObject victim;
+    public GameObject heartBeatMeter;
+    public GameObject backButton;
 
     // Button Click counter
     int counter;
@@ -32,6 +34,9 @@ public class AnimationController : MonoBehaviour
         responderAnim = responder.GetComponent<Animator>();
         victimAnim = victim.GetComponent<Animator>();
 
+        heartBeatMeter.SetActive(false);
+        backButton.SetActive(false);
+
         counter = 0;
 
         // only head clickable initially
@@ -44,6 +49,12 @@ public class AnimationController : MonoBehaviour
     #region CHeckBreathing
     public void CheckBreathing ()
     {
+        if(counter == 1)
+        {
+            StartCPR();
+            counter = 2;
+        }
+
         if (counter == 0)
         {
             responderAnim.SetTrigger("checkBreathing");
@@ -53,14 +64,11 @@ public class AnimationController : MonoBehaviour
             // disable click action on head
             headAnchor.GetComponent<Button>().enabled = false;
 
+            heartBeatMeter.SetActive(true);
+
             // start couroutine
             StartCoroutine(WaitForResuscitation());
         }
-        else
-        {
-            StartCPR();
-        }
-        
     }
 
     //IEnumerator WaitFOrHeadAnimation()
@@ -96,5 +104,11 @@ public class AnimationController : MonoBehaviour
     {
         // stops the cpr
         yield return new WaitForSeconds(30);
+
+        responderAnim.SetTrigger("stop");
+        victimAnim.SetTrigger("stop");
+
+        backButton.SetActive(true);
+        instructionText.text = "Congratulation! You have successfully completed the training and can save people.";
     }
 }
