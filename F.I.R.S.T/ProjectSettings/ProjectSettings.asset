@@ -159,7 +159,8 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.drow.second
-    Standalone: com.oculus.UnitySample
+    Standalone: com.oculus.first
+    iOS: com.oculus.UnitySample
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 25
@@ -397,6 +398,9 @@ PlayerSettings:
     m_Enabled: 1
     m_Devices:
     - Oculus
+  - m_BuildTarget: iOS
+    m_Enabled: 1
+    m_Devices: []
   m_BuildTargetEnableVuforiaSettings: []
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
