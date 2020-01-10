@@ -197,7 +197,7 @@ MonoBehaviour:
   victim: {fileID: 813443363}
   heartBeatMeter: {fileID: 885831184}
   backButton: {fileID: 0}
-  headAnchor: {fileID: 1862695675}
+  headAnchor: {fileID: 1341489347}
   headAnchorbool: 0
   chestAnchor: {fileID: 2070441632}
   chestAnchorBool: 0
