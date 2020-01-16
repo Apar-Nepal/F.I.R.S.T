@@ -1,0 +1,279 @@
+fileFormatVersion: 2
+guid: 5443105942a70b54db51434d34ba996c
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Cube.001
+    100002: Cube.002
+    100004: Cube.003
+    100006: Cube.004
+    100008: Cube.005
+    100010: Cube.006
+    100012: Cube.007
+    100014: Cube.008
+    100016: Cylinder
+    100018: Cylinder.001
+    100020: Cylinder.003
+    100022: Cylinder.004
+    100024: hospital_bed.000
+    100026: hospital_bed.001
+    100028: hospital_bed.003
+    100030: hospital_bed.004
+    100032: //RootNode
+    400000: Cube.001
+    400002: Cube.002
+    400004: Cube.003
+    400006: Cube.004
+    400008: Cube.005
+    400010: Cube.006
+    400012: Cube.007
+    400014: Cube.008
+    400016: Cylinder
+    400018: Cylinder.001
+    400020: Cylinder.003
+    400022: Cylinder.004
+    400024: hospital_bed.000
+    400026: hospital_bed.001
+    400028: hospital_bed.003
+    400030: hospital_bed.004
+    400032: //RootNode
+    2100000: UPPER_TILR
+    2100002: Material.005
+    2100004: Material.008
+    2100006: Material.006
+    2100008: Material.009
+    2100010: Material.007
+    2100012: XRAY
+    2100014: Mat_2.001
+    2100016: Mat_1.001
+    2100018: Mat_3.001
+    2100020: Wood
+    2100022: Material.002
+    2100024: Material.003
+    2100026: Material.004
+    2100028: Material.000
+    2100030: Material.010
+    2100032: Material.011
+    2300000: Cube.001
+    2300002: Cube.002
+    2300004: Cube.003
+    2300006: Cube.004
+    2300008: Cube.005
+    2300010: Cube.006
+    2300012: Cube.007
+    2300014: Cube.008
+    2300016: Cylinder
+    2300018: Cylinder.001
+    2300020: Cylinder.003
+    2300022: Cylinder.004
+    2300024: hospital_bed.000
+    2300026: hospital_bed.001
+    2300028: hospital_bed.003
+    2300030: hospital_bed.004
+    2300032: //RootNode
+    3300000: Cube.001
+    3300002: Cube.002
+    3300004: Cube.003
+    3300006: Cube.004
+    3300008: Cube.005
+    3300010: Cube.006
+    3300012: Cube.007
+    3300014: Cube.008
+    3300016: Cylinder
+    3300018: Cylinder.001
+    3300020: Cylinder.003
+    3300022: Cylinder.004
+    3300024: hospital_bed.000
+    3300026: hospital_bed.001
+    3300028: hospital_bed.003
+    3300030: hospital_bed.004
+    3300032: //RootNode
+    4300000: Cube
+    4300002: hospital_bed.001
+    4300004: hospital_bed.000
+    4300006: Cylinder
+    4300008: Cylinder.001
+    4300010: Cube.005
+    4300012: Cube.006
+    4300014: hospital_bed.003
+    4300016: Cylinder.003
+    4300018: Cube.001
+    4300020: hospital_bed.004
+    4300022: Cylinder.004
+    4300024: Cube.002
+    4300026: Cube.003
+    4300028: Cube.004
+    4300030: Cube.007
+    4300032: Cube.008
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_1.001
+    second: {fileID: 2100000, guid: 6edba6c223e59de48a340b802263f754, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_2.001
+    second: {fileID: 2100000, guid: 93c375c8df718ed45ab13f682833f389, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_3.001
+    second: {fileID: 2100000, guid: 273c41a3ab7bf794a96b36cf5998da80, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.000
+    second: {fileID: 2100000, guid: 68b6c4bac181dff4dbae79db8101abf9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 7854b866de40bc64998fe07318581f2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: c034fa8e32204964080e20ff23abdfa2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 08cc17deb776b4546a387a1281c19de0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: daf870e93e656ab43a581ec3f40de8fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.006
+    second: {fileID: 2100000, guid: 417628229e0cc934ab72774d586ed656, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.007
+    second: {fileID: 2100000, guid: 51c4363b776e5114ebe0692b2f3030f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.008
+    second: {fileID: 2100000, guid: 42ac0867a346c6c468249ec96301470a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.009
+    second: {fileID: 2100000, guid: 6e16763a39ecd64478ef8c98b85f208c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.010
+    second: {fileID: 2100000, guid: d8cff3556303cad45b98d140a969643c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.011
+    second: {fileID: 2100000, guid: 46846f82146b94c4a97bb6fc9422dd0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: UPPER_TILR
+    second: {fileID: 2100000, guid: 2c8ed0292d5372d4a977f751a2d1e5ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: ad2a5080a44a8564d8df4e8b4337dbd1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: XRAY
+    second: {fileID: 2100000, guid: c58dbecde4bdafb418f92986368854bf, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
