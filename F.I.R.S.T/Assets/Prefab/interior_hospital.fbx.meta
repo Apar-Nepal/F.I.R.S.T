@@ -40,20 +40,21 @@ ModelImporter:
     2100000: UPPER_TILR
     2100002: Material.005
     2100004: Material.008
-    2100006: Material.006
-    2100008: Material.009
-    2100010: Material.007
-    2100012: XRAY
-    2100014: Mat_2.001
-    2100016: Mat_1.001
-    2100018: Mat_3.001
-    2100020: Wood
-    2100022: Material.002
-    2100024: Material.003
-    2100026: Material.004
-    2100028: Material.000
-    2100030: Material.010
-    2100032: Material.011
+    2100006: wood
+    2100008: glass
+    2100010: glow
+    2100012: Material.007
+    2100014: XRAY
+    2100016: Mat_2.001
+    2100018: Mat_1.001
+    2100020: Mat_3.001
+    2100022: Wood
+    2100024: Material.002
+    2100026: Material.003
+    2100028: Material.004
+    2100030: Material.000
+    2100032: Material.010
+    2100034: Material.011
     2300000: Cube.001
     2300002: Cube.002
     2300004: Cube.003
@@ -111,87 +112,92 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Mat_1.001
-    second: {fileID: 2100000, guid: 6edba6c223e59de48a340b802263f754, type: 2}
+    second: {fileID: 2100000, guid: 53dbdb88a6dd5594b8cd207f786b437a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Mat_2.001
-    second: {fileID: 2100000, guid: 93c375c8df718ed45ab13f682833f389, type: 2}
+    second: {fileID: 2100000, guid: aa62c095d6f29e442874576322653668, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Mat_3.001
-    second: {fileID: 2100000, guid: 273c41a3ab7bf794a96b36cf5998da80, type: 2}
+    second: {fileID: 2100000, guid: 8ce1ea28b6658c445902ba814a4c0067, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.000
-    second: {fileID: 2100000, guid: 68b6c4bac181dff4dbae79db8101abf9, type: 2}
+    second: {fileID: 2100000, guid: 2c62bd730ca220b45bb8a1a8ae7a79b8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.002
-    second: {fileID: 2100000, guid: 7854b866de40bc64998fe07318581f2e, type: 2}
+    second: {fileID: 2100000, guid: 63cbd5ca531619e4c91182a842474c51, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.003
-    second: {fileID: 2100000, guid: c034fa8e32204964080e20ff23abdfa2, type: 2}
+    second: {fileID: 2100000, guid: 30e82b015fd260544b784b8157dd78b0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.004
-    second: {fileID: 2100000, guid: 08cc17deb776b4546a387a1281c19de0, type: 2}
+    second: {fileID: 2100000, guid: d773371feccc21e41abba1fef0401a96, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.005
-    second: {fileID: 2100000, guid: daf870e93e656ab43a581ec3f40de8fc, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.006
-    second: {fileID: 2100000, guid: 417628229e0cc934ab72774d586ed656, type: 2}
+    second: {fileID: 2100000, guid: ef4779445dfaf8c429df4de00666045a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.007
-    second: {fileID: 2100000, guid: 51c4363b776e5114ebe0692b2f3030f2, type: 2}
+    second: {fileID: 2100000, guid: 7b699d1fb9c621e4eb26b10976a596ca, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.008
-    second: {fileID: 2100000, guid: 42ac0867a346c6c468249ec96301470a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.009
-    second: {fileID: 2100000, guid: 6e16763a39ecd64478ef8c98b85f208c, type: 2}
+    second: {fileID: 2100000, guid: 80534cc527f7caa48962b8a2f7b444ea, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.010
-    second: {fileID: 2100000, guid: d8cff3556303cad45b98d140a969643c, type: 2}
+    second: {fileID: 2100000, guid: 4d861b44d37ff3f4293b137eb4478e73, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.011
-    second: {fileID: 2100000, guid: 46846f82146b94c4a97bb6fc9422dd0e, type: 2}
+    second: {fileID: 2100000, guid: 7e1943b4c3b7a1f42a76d5c14c367e52, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: UPPER_TILR
-    second: {fileID: 2100000, guid: 2c8ed0292d5372d4a977f751a2d1e5ab, type: 2}
+    second: {fileID: 2100000, guid: 22a1787432e7d8846a7027359f26ae87, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Wood
-    second: {fileID: 2100000, guid: ad2a5080a44a8564d8df4e8b4337dbd1, type: 2}
+    second: {fileID: 2100000, guid: b52629e9475b0404688b9d210cf392da, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: XRAY
-    second: {fileID: 2100000, guid: c58dbecde4bdafb418f92986368854bf, type: 2}
+    second: {fileID: 2100000, guid: 51e9bde676ffbe441952115ec404916a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass
+    second: {fileID: 2100000, guid: ce4f2240efc14764bbf5530f2500a5a1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glow
+    second: {fileID: 2100000, guid: c8a776cd5cfa2ec469b80c26ecb154bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood
+    second: {fileID: 2100000, guid: 039f4f93be55ed041a7828dc574955c2, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -231,7 +237,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
