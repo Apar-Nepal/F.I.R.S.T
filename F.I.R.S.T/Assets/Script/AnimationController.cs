@@ -22,10 +22,7 @@ public class AnimationController : MonoBehaviour
     Animator victimAnim;
     
     // Colliders
-    public GameObject headAnchor;
-    public bool headAnchorbool = false;
     public GameObject chestAnchor;
-    public bool chestAnchorBool = false;
 
     public TextMeshPro instructionText;
 
@@ -39,10 +36,8 @@ public class AnimationController : MonoBehaviour
 
         counter = 0;
 
-        // only head clickable initially
-        chestAnchor.GetComponent<Button>().enabled = true;
-        // headAnchor.GetComponent<Button>().enabled = true;
-        headAnchorbool = true;
+        chestAnchor.GetComponent<Button>().enabled = false;
+
     }
 
 
@@ -62,7 +57,7 @@ public class AnimationController : MonoBehaviour
             counter = 1;
 
             // disable click action on head
-            headAnchor.GetComponent<Button>().enabled = false;
+            chestAnchor.GetComponent<Button>().enabled = false;
 
             heartBeatMeter.SetActive(true);
 
@@ -71,20 +66,12 @@ public class AnimationController : MonoBehaviour
         }
     }
 
-    //IEnumerator WaitFOrHeadAnimation()
-    //{
-    //    yield return new WaitForSeconds(9);
-    //    instructionText.text = "Start mouth to mouth Resuscitation ";
-    //    StartCoroutine(WaitForResuscitation());
-    //}
-
     IEnumerator WaitForResuscitation()
     {
         yield return new WaitForSeconds(3);
         instructionText.text = "Click on chest to start CPR";
         chestAnchor.GetComponent<Button>().enabled = true;
-        chestAnchorBool = true;
-        headAnchorbool = false;
+
     }
     #endregion
 
@@ -103,7 +90,7 @@ public class AnimationController : MonoBehaviour
     IEnumerator StopCpr()
     {
         // stops the cpr
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(10);
 
         responderAnim.SetTrigger("stop");
         victimAnim.SetTrigger("stop");
