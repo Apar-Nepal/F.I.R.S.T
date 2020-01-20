@@ -10,7 +10,6 @@ public class FirstaidInstruction : MonoBehaviour
     public GameObject responderTshirt;
     public GameObject responderModel;
     public GameObject responderPants;
-
     public GameObject victimModel;
     #endregion
 
@@ -18,6 +17,8 @@ public class FirstaidInstruction : MonoBehaviour
     public TextMeshPro instructionText;
     public GameObject drowningImage;
     public GameObject m_CPRHandPostion;
+
+    public GameObject callEmergencyNumber;
     #endregion
 
     void Start()
@@ -28,6 +29,9 @@ public class FirstaidInstruction : MonoBehaviour
         victimModel.GetComponent<SkinnedMeshRenderer>().enabled = false;
 
         m_CPRHandPostion.GetComponent<Image>().enabled = false;
+
+        callEmergencyNumber.SetActive(false);
+
 
         //start coroutine
         StartCoroutine(DrowningImage());
@@ -44,6 +48,12 @@ public class FirstaidInstruction : MonoBehaviour
         victimModel.GetComponent<SkinnedMeshRenderer>().enabled = true;
 
         instructionText.text = "Call emergency on 112 for ambulance";
+        callEmergencyNumber.SetActive(true);
+    }
+
+    public void CallEmergencyNumber()
+    {
+        instructionText.text = "Calling Emergency number";
         StartCoroutine(CheckHeartbeat());
     }
 

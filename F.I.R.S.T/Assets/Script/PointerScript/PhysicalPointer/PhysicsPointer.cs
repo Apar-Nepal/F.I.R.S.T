@@ -9,7 +9,7 @@ public class PhysicsPointer : MonoBehaviour
 
     private LineRenderer lineRenderer = null;
 
-    public GameObject[] animationController;
+    public GameObject[] chestAnchor;
 
     private void Awake()
     {
@@ -24,6 +24,8 @@ public class PhysicsPointer : MonoBehaviour
     private void UpdateLine()
     {
         dot.GetComponent<MeshRenderer>().material.color = Color.red;
+        chestAnchor[0].GetComponent<SpriteRenderer>().enabled = false;
+
         // default value or lengght
 
 
@@ -37,23 +39,13 @@ public class PhysicsPointer : MonoBehaviour
         if (hit.collider)
         {
             endPosition = hit.point;
-            if (hit.collider.tag == "victimHead" && animationController.Length !=0)
-            {
-                if (animationController[0].GetComponent<AnimationController>().headAnchorbool == true)
-                {
-                    dot.transform.localScale = new Vector3(.01f, .01f, .01f);
-                    dot.GetComponent<MeshRenderer>().material.color = Color.blue;
-                }
-                
-            }
-            if (hit.collider.tag == "victimChest" && animationController.Length != 0)
-            {
-                if (animationController[0].GetComponent<AnimationController>().chestAnchorBool == true)
-                {
-                    dot.transform.localScale = new Vector3(.01f, .01f, .01f);
-                    dot.GetComponent<MeshRenderer>().material.color = Color.blue;
-                }
 
+            
+            if (hit.collider.tag == "victimChest" && chestAnchor.Length != 0)
+            {
+                dot.transform.localScale = new Vector3(.01f, .01f, .01f);
+                dot.GetComponent<MeshRenderer>().material.color = Color.blue;
+                chestAnchor[0].GetComponent<SpriteRenderer>().enabled = true;
             }
         }
 
