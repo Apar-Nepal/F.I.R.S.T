@@ -26,6 +26,9 @@ public class AnimationController : MonoBehaviour
 
     public TextMeshPro instructionText;
 
+    // Sound Manager
+    public SoundManager soundManager;
+
     private void Start()
     {
         responderAnim = responder.GetComponent<Animator>();
@@ -52,12 +55,13 @@ public class AnimationController : MonoBehaviour
 
         if (counter == 0)
         {
+            soundManager.CheckHeartBeatAudioTwo();
+
             responderAnim.SetTrigger("checkBreathing");
 
             counter = 1;
 
-            // disable click action on head
-            chestAnchor.GetComponent<Button>().enabled = false;
+            DisableChestAnchor();
 
             heartBeatMeter.SetActive(true);
 
@@ -66,15 +70,25 @@ public class AnimationController : MonoBehaviour
         }
     }
 
+    public void DisableChestAnchor()
+    {
+        chestAnchor.GetComponent<SpriteRenderer>().enabled = false;
+        chestAnchor.GetComponent<Button>().enabled = false;
+    }
+
     IEnumerator WaitForResuscitation()
     {
         yield return new WaitForSeconds(3);
         instructionText.text = "Click on chest to start CPR";
-        chestAnchor.GetComponent<Button>().enabled = true;
-
+        EnableChestAnchor();
     }
     #endregion
 
+    public void EnableChestAnchor()
+    {
+        chestAnchor.GetComponent<SpriteRenderer>().enabled = true;
+        chestAnchor.GetComponent<Button>().enabled = true;
+    }
 
     #region CPR
     public void StartCPR ()
@@ -82,6 +96,7 @@ public class AnimationController : MonoBehaviour
         responderAnim.SetTrigger("chestPressure");
         victimAnim.SetTrigger("chestPressure");
 
+        soundManager.StartCPRAudio();
 
         StartCoroutine(StopCpr());
     }

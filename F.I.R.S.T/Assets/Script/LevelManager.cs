@@ -16,23 +16,4 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene("DrowningCPR");
     }
-
-    //public void Snake()
-    //{
-    //    SceneManager.LoadScene("Snake");
-    //}
-
-    //public void PreviousScene()
-    //{
-    //    SceneManager.LoadScene("ModeSelect");
-    //}
-
-   
-    //private void Update()
-    //{
-    //    if (OVRInput.GetDown(OVRInput.Button.Back))  
-    //    {
-    //        Application.Quit();
-    //    }
-    //}
 }

@@ -24,7 +24,10 @@ public class PhysicsPointer : MonoBehaviour
     private void UpdateLine()
     {
         dot.GetComponent<MeshRenderer>().material.color = Color.red;
-        chestAnchor[0].GetComponent<SpriteRenderer>().enabled = false;
+        if (chestAnchor.Length != 0)
+        {
+            chestAnchor[0].GetComponent<SpriteRenderer>().enabled = false;
+        }
 
         // default value or lengght
 
@@ -40,12 +43,16 @@ public class PhysicsPointer : MonoBehaviour
         {
             endPosition = hit.point;
 
-            
+
             if (hit.collider.tag == "victimChest" && chestAnchor.Length != 0)
             {
                 dot.transform.localScale = new Vector3(.01f, .01f, .01f);
                 dot.GetComponent<MeshRenderer>().material.color = Color.blue;
                 chestAnchor[0].GetComponent<SpriteRenderer>().enabled = true;
+            }
+            if (hit.collider.tag != "victimChest" && chestAnchor.Length != 0)
+            {
+                chestAnchor[0].GetComponent<SpriteRenderer>().enabled = false;
             }
         }
 

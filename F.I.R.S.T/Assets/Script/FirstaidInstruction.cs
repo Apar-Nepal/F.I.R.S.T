@@ -11,6 +11,7 @@ public class FirstaidInstruction : MonoBehaviour
     public GameObject responderModel;
     public GameObject responderPants;
     public GameObject victimModel;
+    public GameObject chestAnchor;
     #endregion
 
     #region Instruction
@@ -20,6 +21,10 @@ public class FirstaidInstruction : MonoBehaviour
 
     public GameObject callEmergencyNumber;
     #endregion
+
+    public SoundManager soundManager;
+
+    public GameObject animationController;
 
     void Start()
     {
@@ -55,6 +60,8 @@ public class FirstaidInstruction : MonoBehaviour
     {
         instructionText.text = "Calling Emergency number";
         StartCoroutine(CheckHeartbeat());
+        callEmergencyNumber.SetActive(false);
+        soundManager.CheckHeartBeatAudio();
     }
 
     IEnumerator CheckHeartbeat()
@@ -62,7 +69,11 @@ public class FirstaidInstruction : MonoBehaviour
         yield return new WaitForSeconds(3);
         instructionText.text = ("press/trigger on chest to check to check heartbeat. If CPR is needed get ready for CPR by clasping hand over chest area as shown.");
 
+        animationController = GameObject.Find("Responder");
+        animationController.GetComponent<AnimationController>().EnableChestAnchor();
+
         // display image for CPR hand postion
         m_CPRHandPostion.GetComponent<Image>().enabled = true;
+        chestAnchor.GetComponent<Button>().enabled = true;
     }
 }
