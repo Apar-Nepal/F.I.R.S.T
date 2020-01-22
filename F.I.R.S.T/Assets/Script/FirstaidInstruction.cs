@@ -32,8 +32,9 @@ public class FirstaidInstruction : MonoBehaviour
         responderPants.GetComponent<SkinnedMeshRenderer>().enabled = false;
         responderTshirt.GetComponent<SkinnedMeshRenderer>().enabled = false;
         victimModel.GetComponent<SkinnedMeshRenderer>().enabled = false;
+        chestAnchor.GetComponent<CapsuleCollider>().enabled = false;
 
-        m_CPRHandPostion.GetComponent<Image>().enabled = false;
+        m_CPRHandPostion.GetComponent<MeshRenderer>().enabled = false;
 
         callEmergencyNumber.SetActive(false);
 
@@ -51,6 +52,7 @@ public class FirstaidInstruction : MonoBehaviour
         responderPants.GetComponent<SkinnedMeshRenderer>().enabled = true;
         responderTshirt.GetComponent<SkinnedMeshRenderer>().enabled = true;
         victimModel.GetComponent<SkinnedMeshRenderer>().enabled = true;
+        chestAnchor.GetComponent<CapsuleCollider>().enabled = true;
 
         instructionText.text = "Call emergency on 112 for ambulance";
         callEmergencyNumber.SetActive(true);
@@ -73,7 +75,7 @@ public class FirstaidInstruction : MonoBehaviour
         animationController.GetComponent<AnimationController>().EnableChestAnchor();
 
         // display image for CPR hand postion
-        m_CPRHandPostion.GetComponent<Image>().enabled = true;
+        m_CPRHandPostion.GetComponent<MeshRenderer>().enabled = true;
         chestAnchor.GetComponent<Button>().enabled = true;
     }
 }
