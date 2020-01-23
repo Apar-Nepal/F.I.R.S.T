@@ -252,7 +252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.0000019073486}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &269563754
@@ -1219,7 +1219,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -52.2, y: -34.5}
+  m_AnchoredPosition: {x: 8.9, y: -51.1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &874731119
@@ -4748,12 +4748,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619669e772a10c8409968e466fdd6683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source1: {fileID: 1276791310}
-  clip1: {fileID: 8300000, guid: f91ec5faf56350b47b115afa002ab434, type: 3}
-  clip2: {fileID: 8300000, guid: 3dd8f1c452d743e4c94720d061ec9154, type: 3}
-  clip3: {fileID: 8300000, guid: 1c1530e2b91f6544eb833fb7f0765c9a, type: 3}
-  clip4: {fileID: 8300000, guid: aa3a499dce6d59f4ab3262e7b1887387, type: 3}
-  clip5: {fileID: 8300000, guid: 854e65a3b84335043a5ca9ad99226bbd, type: 3}
+  source: {fileID: 1276791310}
+  callAmbulance: {fileID: 8300000, guid: f91ec5faf56350b47b115afa002ab434, type: 3}
+  breathChecking: {fileID: 8300000, guid: 3dd8f1c452d743e4c94720d061ec9154, type: 3}
+  breathChecking2: {fileID: 8300000, guid: 1c1530e2b91f6544eb833fb7f0765c9a, type: 3}
+  startCpr: {fileID: 8300000, guid: aa3a499dce6d59f4ab3262e7b1887387, type: 3}
+  startCpr2: {fileID: 8300000, guid: 854e65a3b84335043a5ca9ad99226bbd, type: 3}
+  heartBeat: {fileID: 8300000, guid: 126af5c235df2614689817df74687609, type: 3}
 --- !u!1 &1341489347
 GameObject:
   m_ObjectHideFlags: 0
@@ -4968,7 +4969,7 @@ MonoBehaviour:
   chestAnchor: {fileID: 2070441632}
   instructionText: {fileID: 1077396364}
   drowningImage: {fileID: 1978691459}
-  m_CPRHandPostion: {fileID: 8012520410634485759}
+  m_CPRHandPostion: {fileID: 6474507831145571149}
   callEmergencyNumber: {fileID: 874731117}
   soundManager: {fileID: 1276791311}
   animationController: {fileID: 1079647837}
@@ -8079,16 +8080,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6474507831145571149}
-  m_LocalRotation: {x: -0.69615084, y: 0.69615084, z: -0.12399234, w: 0.12399237}
-  m_LocalPosition: {x: 0, y: 0, z: 0.913}
+  m_LocalRotation: {x: -0.701249, y: 0.70124906, z: -0.090828076, w: 0.09082812}
+  m_LocalPosition: {x: 0, y: 0, z: 1.052}
   m_LocalScale: {x: 20.7315, y: 20.7315, z: 13.821}
   m_Children: []
   m_Father: {fileID: 1720940249}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 159.802, z: -90.00001}
+  m_LocalEulerAnglesHint: {x: 0, y: 165.24, z: -90.00001}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.104, y: 0.59299994}
+  m_AnchoredPosition: {x: -0.727, y: 0.593}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6484285360913886901
@@ -9076,7 +9077,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8012520410634485760
 RectTransform:
   m_ObjectHideFlags: 0

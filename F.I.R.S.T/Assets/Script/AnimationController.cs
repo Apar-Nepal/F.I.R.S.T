@@ -21,7 +21,7 @@ public class AnimationController : MonoBehaviour
     Animator responderAnim;
     Animator victimAnim;
     
-    // Colliders
+    // Collider
     public GameObject chestAnchor;
 
     public TextMeshPro instructionText;
@@ -39,23 +39,26 @@ public class AnimationController : MonoBehaviour
 
         counter = 0;
 
-        chestAnchor.GetComponent<Button>().enabled = false;
+        chestAnchor.GetComponent<CapsuleCollider>().enabled = false;
 
     }
 
 
-    #region CHeckBreathing
+
     public void CheckBreathing ()
     {
         if(counter == 1)
         {
+            soundManager.StartCPRAudio();
             StartCPR();
             counter = 2;
+            DisableChestAnchor();
+            heartBeatMeter.SetActive(false);
         }
 
         if (counter == 0)
         {
-            soundManager.CheckHeartBeatAudioTwo();
+            soundManager.HeartBeat();
 
             responderAnim.SetTrigger("checkBreathing");
 
@@ -63,8 +66,8 @@ public class AnimationController : MonoBehaviour
 
             DisableChestAnchor();
 
-            heartBeatMeter.SetActive(true);
-
+              // need to activate it later in listning part
+            
             // start couroutine
             StartCoroutine(WaitForResuscitation());
         }
@@ -73,21 +76,42 @@ public class AnimationController : MonoBehaviour
     public void DisableChestAnchor()
     {
         chestAnchor.GetComponent<SpriteRenderer>().enabled = false;
-        chestAnchor.GetComponent<Button>().enabled = false;
+        chestAnchor.GetComponent<CapsuleCollider>().enabled = false;
     }
 
     IEnumerator WaitForResuscitation()
     {
         yield return new WaitForSeconds(3);
+        heartBeatMeter.SetActive(true);
+
+        // play hearbeat audio
+        soundManager.HeartBeat();
+
+        // add 10 sec delay while playing the heart beat sound
+        StartCoroutine(PositionHands());
+
         instructionText.text = "Click on chest to start CPR";
         EnableChestAnchor();
     }
-    #endregion
+
+
+    IEnumerator PositionHands()
+    {
+        yield return new WaitForSeconds(10);
+
+        // change animation state and stop listining
+        responderAnim.SetTrigger("Listening");
+        soundManager.CheckHeartBeatAudioTwo();
+
+        // stop looping sound and change pitch back to normal
+        soundManager.source.loop = false;
+        soundManager.source.pitch = 1;
+    }
 
     public void EnableChestAnchor()
     {
         chestAnchor.GetComponent<SpriteRenderer>().enabled = true;
-        chestAnchor.GetComponent<Button>().enabled = true;
+        chestAnchor.GetComponent<CapsuleCollider>().enabled = true;
     }
 
     #region CPR
@@ -96,7 +120,6 @@ public class AnimationController : MonoBehaviour
         responderAnim.SetTrigger("chestPressure");
         victimAnim.SetTrigger("chestPressure");
 
-        soundManager.StartCPRAudio();
 
         StartCoroutine(StopCpr());
     }
@@ -105,7 +128,7 @@ public class AnimationController : MonoBehaviour
     IEnumerator StopCpr()
     {
         // stops the cpr
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(15);
 
         responderAnim.SetTrigger("stop");
         victimAnim.SetTrigger("stop");

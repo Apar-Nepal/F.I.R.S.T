@@ -38,6 +38,7 @@ public class FirstaidInstruction : MonoBehaviour
 
         callEmergencyNumber.SetActive(false);
 
+        m_CPRHandPostion.GetComponent<MeshRenderer>().enabled = false;
 
         //start coroutine
         StartCoroutine(DrowningImage());
@@ -52,7 +53,7 @@ public class FirstaidInstruction : MonoBehaviour
         responderPants.GetComponent<SkinnedMeshRenderer>().enabled = true;
         responderTshirt.GetComponent<SkinnedMeshRenderer>().enabled = true;
         victimModel.GetComponent<SkinnedMeshRenderer>().enabled = true;
-        chestAnchor.GetComponent<CapsuleCollider>().enabled = true;
+        
 
         instructionText.text = "Call emergency on 112 for ambulance";
         callEmergencyNumber.SetActive(true);
@@ -63,19 +64,20 @@ public class FirstaidInstruction : MonoBehaviour
         instructionText.text = "Calling Emergency number";
         StartCoroutine(CheckHeartbeat());
         callEmergencyNumber.SetActive(false);
+        //chestAnchor.GetComponent<CapsuleCollider>().enabled = true;
         soundManager.CheckHeartBeatAudio();
     }
 
     IEnumerator CheckHeartbeat()
     {
         yield return new WaitForSeconds(3);
-        instructionText.text = ("press/trigger on chest to check to check heartbeat. If CPR is needed get ready for CPR by clasping hand over chest area as shown.");
+        instructionText.text = ("press on chest to check heartbeat. If CPR is needed get ready for CPR by clasping hand over chest area as shown.");
 
-        animationController = GameObject.Find("Responder");
+        
         animationController.GetComponent<AnimationController>().EnableChestAnchor();
 
         // display image for CPR hand postion
         m_CPRHandPostion.GetComponent<MeshRenderer>().enabled = true;
-        chestAnchor.GetComponent<Button>().enabled = true;
+        chestAnchor.GetComponent<CapsuleCollider>().enabled = true;
     }
 }

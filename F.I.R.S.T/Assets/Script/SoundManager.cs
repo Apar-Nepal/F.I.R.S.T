@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public AudioSource source1;
+    public AudioSource source;
 
-    public AudioClip clip1;
-    public AudioClip clip2;
-    public AudioClip clip3;
-    public AudioClip clip4;
-    public AudioClip clip5;
+    public AudioClip callAmbulance;
+    public AudioClip breathChecking;
+    public AudioClip breathChecking2;
+    public AudioClip startCpr;
+    public AudioClip startCpr2;
+    public AudioClip heartBeat;
 
     // Start is called before the first frame update
     void Start()
     {
-        source1.clip = clip1;
+        source.clip = callAmbulance;
 
         StartCoroutine(CallAmbulance());
 
@@ -24,27 +25,42 @@ public class SoundManager : MonoBehaviour
     IEnumerator CallAmbulance()
     {
         yield return new WaitForSeconds(3);
-        source1.Play();
+        source.Play();
     }
 
     public void CheckHeartBeatAudio()
     {
-        source1.clip = clip2;
-        source1.PlayDelayed(3);
+        source.clip = breathChecking;
+        source.PlayDelayed(3);
     }
 
     public void CheckHeartBeatAudioTwo()
     {
-        source1.clip = clip3;
-        source1.Play();
+        
+        source.clip = breathChecking2;
+        source.PlayDelayed(3);
+    }
+
+    public void HeartBeat()
+    {
+        source.loop = true;
+        source.clip = heartBeat;
+        source.pitch = 0.9f;
+        source.Play();
     }
 
     public void StartCPRAudio()
     {
-        source1.clip = clip4;
-        source1.Play();
+        source.clip = startCpr;
+        source.Play();
 
-        source1.clip = clip5;
-        source1.PlayDelayed(7);
+        StartCoroutine(StartCPRAudio2());
+    }
+
+    IEnumerator StartCPRAudio2()
+    {
+        yield return new WaitForSeconds(6);
+        source.clip = startCpr2;
+        source.Play();
     }
 }

@@ -24,11 +24,7 @@ public class PhysicsPointer : MonoBehaviour
     private void UpdateLine()
     {
         dot.GetComponent<MeshRenderer>().material.color = Color.red;
-        if (chestAnchor.Length != 0)
-        {
-            chestAnchor[0].GetComponent<SpriteRenderer>().enabled = false;
-        }
-
+        
         // default value or lengght
 
 
