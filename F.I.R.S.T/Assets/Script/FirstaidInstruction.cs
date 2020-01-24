@@ -17,7 +17,7 @@ public class FirstaidInstruction : MonoBehaviour
     #region Instruction
     public TextMeshPro instructionText;
     public GameObject drowningImage;
-    public GameObject m_CPRHandPostion;
+    //public GameObject m_CPRHandPostion;
 
     public GameObject callEmergencyNumber;
     #endregion
@@ -34,7 +34,7 @@ public class FirstaidInstruction : MonoBehaviour
         victimModel.GetComponent<SkinnedMeshRenderer>().enabled = false;
         chestAnchor.GetComponent<CapsuleCollider>().enabled = false;
 
-        m_CPRHandPostion.GetComponent<MeshRenderer>().enabled = false;
+        //m_CPRHandPostion.GetComponent<MeshRenderer>().enabled = false;
 
         callEmergencyNumber.SetActive(false);
 
@@ -75,7 +75,7 @@ public class FirstaidInstruction : MonoBehaviour
         animationController.GetComponent<AnimationController>().EnableChestAnchor();
 
         // display image for CPR hand postion
-        m_CPRHandPostion.GetComponent<MeshRenderer>().enabled = true;
+        //m_CPRHandPostion.GetComponent<MeshRenderer>().enabled = true;
         chestAnchor.GetComponent<CapsuleCollider>().enabled = true;
     }
 }

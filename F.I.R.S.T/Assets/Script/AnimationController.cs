@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 
@@ -13,6 +12,7 @@ public class AnimationController : MonoBehaviour
     public GameObject victim;
     public GameObject heartBeatMeter;
     public GameObject backButton;
+    public GameObject handPositionCPR;
 
     // Button Click counter
     int counter;
@@ -20,7 +20,7 @@ public class AnimationController : MonoBehaviour
     // animators
     Animator responderAnim;
     Animator victimAnim;
-    
+
     // Collider
     public GameObject chestAnchor;
 
@@ -41,13 +41,14 @@ public class AnimationController : MonoBehaviour
 
         chestAnchor.GetComponent<CapsuleCollider>().enabled = false;
 
+        handPositionCPR.SetActive(false);
     }
 
 
 
-    public void CheckBreathing ()
+    public void CheckBreathing()
     {
-        if(counter == 1)
+        if (counter == 1)
         {
             soundManager.StartCPRAudio();
             StartCPR();
@@ -66,10 +67,10 @@ public class AnimationController : MonoBehaviour
 
             DisableChestAnchor();
 
-              // need to activate it later in listning part
-            
             // start couroutine
             StartCoroutine(WaitForResuscitation());
+
+            handPositionCPR.SetActive(true);
         }
     }
 
@@ -114,16 +115,13 @@ public class AnimationController : MonoBehaviour
         chestAnchor.GetComponent<CapsuleCollider>().enabled = true;
     }
 
-    #region CPR
-    public void StartCPR ()
+    public void StartCPR()
     {
         responderAnim.SetTrigger("chestPressure");
         victimAnim.SetTrigger("chestPressure");
 
-
         StartCoroutine(StopCpr());
     }
-    #endregion
 
     IEnumerator StopCpr()
     {
@@ -134,6 +132,8 @@ public class AnimationController : MonoBehaviour
 
         responderAnim.SetTrigger("stop");
         victimAnim.SetTrigger("stop");
+
+        handPositionCPR.SetActive(false);
 
         backButton.SetActive(true);
         instructionText.text = "Congratulation! You have successfully completed the training and can save people.";

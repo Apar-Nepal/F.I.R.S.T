@@ -197,6 +197,7 @@ MonoBehaviour:
   victim: {fileID: 8727961619180811387}
   heartBeatMeter: {fileID: 885831184}
   backButton: {fileID: 1341489347}
+  handPositionCPR: {fileID: 6474507831145571149}
   chestAnchor: {fileID: 2070441632}
   instructionText: {fileID: 1077396364}
   soundManager: {fileID: 1276791311}
@@ -4755,6 +4756,7 @@ MonoBehaviour:
   startCpr: {fileID: 8300000, guid: aa3a499dce6d59f4ab3262e7b1887387, type: 3}
   startCpr2: {fileID: 8300000, guid: 854e65a3b84335043a5ca9ad99226bbd, type: 3}
   heartBeat: {fileID: 8300000, guid: 126af5c235df2614689817df74687609, type: 3}
+  ambulance: {fileID: 8300000, guid: 919e8f72c0f537a4eab145a7df2f784e, type: 3}
 --- !u!1 &1341489347
 GameObject:
   m_ObjectHideFlags: 0
@@ -4969,7 +4971,6 @@ MonoBehaviour:
   chestAnchor: {fileID: 2070441632}
   instructionText: {fileID: 1077396364}
   drowningImage: {fileID: 1978691459}
-  m_CPRHandPostion: {fileID: 6474507831145571149}
   callEmergencyNumber: {fileID: 874731117}
   soundManager: {fileID: 1276791311}
   animationController: {fileID: 1079647837}
@@ -7945,7 +7946,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6433447836272796737}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6433373208552683711}
@@ -9804,7 +9805,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8727961619180811387}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.02, y: -0.009, z: 1.307}
+  m_LocalPosition: {x: 0, y: -0.0089, z: 1.307}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 8727961619180841009}
