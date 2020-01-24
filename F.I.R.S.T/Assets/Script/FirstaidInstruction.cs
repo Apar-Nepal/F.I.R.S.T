@@ -38,8 +38,6 @@ public class FirstaidInstruction : MonoBehaviour
 
         callEmergencyNumber.SetActive(false);
 
-        m_CPRHandPostion.GetComponent<MeshRenderer>().enabled = false;
-
         //start coroutine
         StartCoroutine(DrowningImage());
     }

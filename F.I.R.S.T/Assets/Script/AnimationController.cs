@@ -130,6 +130,8 @@ public class AnimationController : MonoBehaviour
         // stops the cpr
         yield return new WaitForSeconds(15);
 
+        soundManager.AmbulanceSound();
+
         responderAnim.SetTrigger("stop");
         victimAnim.SetTrigger("stop");
 

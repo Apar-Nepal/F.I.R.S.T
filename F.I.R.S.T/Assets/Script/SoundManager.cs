@@ -12,6 +12,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip startCpr;
     public AudioClip startCpr2;
     public AudioClip heartBeat;
+    public AudioClip ambulance;
 
     // Start is called before the first frame update
     void Start()
@@ -61,6 +62,12 @@ public class SoundManager : MonoBehaviour
     {
         yield return new WaitForSeconds(6);
         source.clip = startCpr2;
+        source.Play();
+    }
+
+    public void AmbulanceSound()
+    {
+        source.clip = ambulance;
         source.Play();
     }
 }
