@@ -7,9 +7,7 @@ using UnityEngine.UI;
 public class FirstaidInstruction : MonoBehaviour
 {
     #region HumanModel
-    public GameObject responderTshirt;
     public GameObject responderModel;
-    public GameObject responderPants;
     public GameObject victimModel;
     public GameObject chestAnchor;
     #endregion
@@ -17,7 +15,6 @@ public class FirstaidInstruction : MonoBehaviour
     #region Instruction
     public TextMeshPro instructionText;
     public GameObject drowningImage;
-    //public GameObject m_CPRHandPostion;
 
     public GameObject callEmergencyNumber;
     #endregion
@@ -29,12 +26,8 @@ public class FirstaidInstruction : MonoBehaviour
     void Start()
     {
         responderModel.GetComponent<SkinnedMeshRenderer>().enabled = false;
-        responderPants.GetComponent<SkinnedMeshRenderer>().enabled = false;
-        responderTshirt.GetComponent<SkinnedMeshRenderer>().enabled = false;
         victimModel.GetComponent<SkinnedMeshRenderer>().enabled = false;
         chestAnchor.GetComponent<CapsuleCollider>().enabled = false;
-
-        //m_CPRHandPostion.GetComponent<MeshRenderer>().enabled = false;
 
         callEmergencyNumber.SetActive(false);
 
@@ -48,8 +41,6 @@ public class FirstaidInstruction : MonoBehaviour
         
         drowningImage.GetComponent<Image>().enabled = false;
         responderModel.GetComponent<SkinnedMeshRenderer>().enabled = true;
-        responderPants.GetComponent<SkinnedMeshRenderer>().enabled = true;
-        responderTshirt.GetComponent<SkinnedMeshRenderer>().enabled = true;
         victimModel.GetComponent<SkinnedMeshRenderer>().enabled = true;
         
 
@@ -62,7 +53,6 @@ public class FirstaidInstruction : MonoBehaviour
         instructionText.text = "Calling Emergency number";
         StartCoroutine(CheckHeartbeat());
         callEmergencyNumber.SetActive(false);
-        //chestAnchor.GetComponent<CapsuleCollider>().enabled = true;
         soundManager.CheckHeartBeatAudio();
     }
 
@@ -74,8 +64,6 @@ public class FirstaidInstruction : MonoBehaviour
         
         animationController.GetComponent<AnimationController>().EnableChestAnchor();
 
-        // display image for CPR hand postion
-        //m_CPRHandPostion.GetComponent<MeshRenderer>().enabled = true;
         chestAnchor.GetComponent<CapsuleCollider>().enabled = true;
     }
 }
