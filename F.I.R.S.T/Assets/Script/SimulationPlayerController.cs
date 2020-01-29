@@ -4,35 +4,87 @@ using UnityEngine;
 
 public class SimulationPlayerController : MonoBehaviour
 {
-    //public GameObject chestAnchor;
-    //public Animator handAnimator;
-    //public Animator victimAnimator;
+    bool startCPRBtn;
+    bool FirstPress;
 
-    float compressionRate;
-    float nextCompression;
-    float previousCompression;
+    int numOfChestCompresssion;
+    int totalChestCompression;
+    float firstPressTime;
+
+    private void Awake()
+    {
+        startCPRBtn = false;
+        FirstPress = true;
+    }
 
     private void Update()
     {
-        nextCompression = previousCompression + .6f;
+
+        // check total number of compression
+        if ((Time.time - firstPressTime) == 18f)
+        {
+            if (totalChestCompression > 35 || totalChestCompression < 25)
+            {
+                Debug.Log("Failed");
+            }
+            else if (totalChestCompression > 33 || totalChestCompression < 27)
+            {
+                Debug.Log("1 star");
+            }
+            else if (totalChestCompression > 31 || totalChestCompression < 29)
+            {
+                Debug.Log("2 star");
+            }
+            else
+            {
+                Debug.Log("3 star");
+            }
+        }
     }
 
     // chest function
     public void ChestPress()
     {
-        // handAnimator.SetTrigger("handAnim");
-        // victimAnimator.SetTrigger("victimAnim");
 
-        previousCompression = Time.time;
-        Debug.Log(previousCompression - nextCompression);
-        //Debug.Log(previousCompression + "  " + nextCompression);
-
-        if ((previousCompression - nextCompression) > 0.1 || (previousCompression - nextCompression) < -0.1)
+        // only activate on first compresssion
+        if (FirstPress)
         {
-            Debug.Log("late");
+            startCPRBtn = true;
+            firstPressTime = Time.time;
+        }
+        FirstPress = false;
+
+        numOfChestCompresssion++;
+        totalChestCompression++;
+        if (startCPRBtn)
+        {
+            startCPRBtn = false;
+            StartCoroutine(CheckEveryThreeSec());
+        }
+    }
+
+    IEnumerator CheckEveryThreeSec()
+    {
+        yield return new WaitForSeconds(3);
+        startCPRBtn = true;
+        Debug.Log("check every 3 sec");
+        numOfChestCompresssion = 0;
+        if (numOfChestCompresssion < 5)
+        {
+            Debug.Log("too slow");
+        }
+        else if (numOfChestCompresssion>5)
+        {
+            Debug.Log("Too Fast");
         }
         else
-            Debug.Log("combo");
-            
+        {
+            Debug.Log("perfect");
+        }
+    }
+
+    void CheckCompressionRate()
+    {
+
     }
 }

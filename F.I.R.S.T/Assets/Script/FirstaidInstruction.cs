@@ -8,6 +8,7 @@ public class FirstaidInstruction : MonoBehaviour
 {
     #region HumanModel
     public GameObject responderModel;
+    public GameObject responderPant;
     public GameObject victimModel;
     public GameObject chestAnchor;
     #endregion
@@ -26,6 +27,7 @@ public class FirstaidInstruction : MonoBehaviour
     void Start()
     {
         responderModel.GetComponent<SkinnedMeshRenderer>().enabled = false;
+        responderPant.GetComponent<SkinnedMeshRenderer>().enabled = false;
         victimModel.GetComponent<SkinnedMeshRenderer>().enabled = false;
         chestAnchor.GetComponent<CapsuleCollider>().enabled = false;
 
@@ -41,6 +43,7 @@ public class FirstaidInstruction : MonoBehaviour
         
         drowningImage.GetComponent<Image>().enabled = false;
         responderModel.GetComponent<SkinnedMeshRenderer>().enabled = true;
+        responderPant.GetComponent<SkinnedMeshRenderer>().enabled = true;
         victimModel.GetComponent<SkinnedMeshRenderer>().enabled = true;
         
 
