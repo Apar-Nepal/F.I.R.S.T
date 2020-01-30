@@ -92,13 +92,13 @@ public class AnimationController : MonoBehaviour
         StartCoroutine(PositionHands());
 
         instructionText.text = "Click on chest to start CPR";
-        EnableChestAnchor();
     }
 
 
     IEnumerator PositionHands()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(8);
+        EnableChestAnchor();
 
         // change animation state and stop listining
         responderAnim.SetTrigger("Listening");

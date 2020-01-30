@@ -9,12 +9,18 @@ public class SimulationPlayerController : MonoBehaviour
 
     int numOfChestCompresssion;
     int totalChestCompression;
+    int currentStepNum;
     float firstPressTime;
+
+    public Animator handSimulationAnimator;
+    public Animator victimSimulationAnimator;
+
 
     private void Awake()
     {
         startCPRBtn = false;
         FirstPress = true;
+        currentStepNum = 1;
     }
 
     private void Update()
@@ -46,7 +52,7 @@ public class SimulationPlayerController : MonoBehaviour
     public void ChestPress()
     {
 
-        // only activate on first compresssion
+        // only activate on first compresssion 2.566   2.949
         if (FirstPress)
         {
             startCPRBtn = true;
@@ -61,6 +67,25 @@ public class SimulationPlayerController : MonoBehaviour
             startCPRBtn = false;
             StartCoroutine(CheckEveryThreeSec());
         }
+
+        handSimulationAnimator.SetTrigger("Compress");
+        victimSimulationAnimator.SetTrigger("chestPressure");
+
+    }
+
+    public void QuizCOrrect()
+    {
+        // check step num
+            // First quiz
+
+            // Second quiz
+
+            // Third quiz
+    }
+
+    public void QuizIncorrect()
+    {
+        // try again.
     }
 
     IEnumerator CheckEveryThreeSec()

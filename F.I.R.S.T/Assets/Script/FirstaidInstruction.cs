@@ -39,9 +39,9 @@ public class FirstaidInstruction : MonoBehaviour
 
     IEnumerator DrowningImage()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         
-        drowningImage.GetComponent<Image>().enabled = false;
+        drowningImage.GetComponent<MeshRenderer>().enabled = false;
         responderModel.GetComponent<SkinnedMeshRenderer>().enabled = true;
         responderPant.GetComponent<SkinnedMeshRenderer>().enabled = true;
         victimModel.GetComponent<SkinnedMeshRenderer>().enabled = true;
