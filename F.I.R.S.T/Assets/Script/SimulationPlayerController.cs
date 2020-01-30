@@ -52,7 +52,7 @@ public class SimulationPlayerController : MonoBehaviour
     public void ChestPress()
     {
 
-        // only activate on first compresssion 2.566   2.949
+        // only activate on first compresssion
         if (FirstPress)
         {
             startCPRBtn = true;
@@ -76,16 +76,49 @@ public class SimulationPlayerController : MonoBehaviour
     public void QuizCOrrect()
     {
         // check step num
-            // First quiz
+        if (currentStepNum == 1)
+        {
+            // first quiz
 
-            // Second quiz
+            // turn on button to check pulse
 
-            // Third quiz
+            // check pulse
+
+            currentStepNum++;
+        }
+        else if (currentStepNum == 2)
+        {
+            // turn on the button to place hand over the chest
+
+            currentStepNum++;
+        }
+        else
+        {
+            // turn on CPRButton
+        }
+    }
+
+    public void CheckPulse()
+    {
+        // trigger the animation of checking pulse
+
+        // distroy this button
+    }
+
+    public void PlaceHandOverChest()
+    {
+        // trigger animation of hand placing over the chest
+
+        // distroy this game object
     }
 
     public void QuizIncorrect()
     {
-        // try again.
+        // disable buttons of the quiz
+
+        // activate button to try again
+
+        // activate wrong option
     }
 
     IEnumerator CheckEveryThreeSec()
@@ -110,6 +143,6 @@ public class SimulationPlayerController : MonoBehaviour
 
     void CheckCompressionRate()
     {
-
+        
     }
 }
