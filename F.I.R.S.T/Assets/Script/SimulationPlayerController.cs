@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SimulationPlayerController : MonoBehaviour
 {
@@ -15,12 +16,25 @@ public class SimulationPlayerController : MonoBehaviour
     public Animator handSimulationAnimator;
     public Animator victimSimulationAnimator;
 
+    public GameObject checkPulseButton;
+    public GameObject placeHandButton;
+    public GameObject cprButton;
+    public GameObject option1;
+    public GameObject option2;
+    public GameObject option3;
 
     private void Awake()
     {
         startCPRBtn = false;
         FirstPress = true;
         currentStepNum = 1;
+
+        checkPulseButton.SetActive(false);
+        placeHandButton.SetActive(false);
+        cprButton.SetActive(false);
+        option1.SetActive(true);
+        option2.SetActive(true);
+        option3.SetActive(true);
     }
 
     private void Update()
@@ -73,14 +87,30 @@ public class SimulationPlayerController : MonoBehaviour
 
     }
 
-    public void QuizCOrrect()
+    void TurnOnOptions()
+    {
+        option1.SetActive(true);
+        option2.SetActive(true);
+        option3.SetActive(true);
+    }
+
+    void TurnOffOptions()
+    {
+        option1.SetActive(false);
+        option2.SetActive(false);
+        option3.SetActive(false);
+    }
+
+    public void QuizCorrect()
     {
         // check step num
         if (currentStepNum == 1)
         {
             // first quiz
+            TurnOffOptions();
 
             // turn on button to check pulse
+            checkPulseButton.SetActive(true);
 
             // check pulse
 
@@ -88,33 +118,46 @@ public class SimulationPlayerController : MonoBehaviour
         }
         else if (currentStepNum == 2)
         {
+            TurnOffOptions();
+
             // turn on the button to place hand over the chest
+            placeHandButton.SetActive(true);
 
             currentStepNum++;
         }
         else
         {
+            TurnOffOptions();
+
             // turn on CPRButton
+            cprButton.SetActive(true);
         }
     }
 
     public void CheckPulse()
     {
         // trigger the animation of checking pulse
+        handSimulationAnimator.SetTrigger("Check");
+        TurnOnOptions();
 
         // distroy this button
+        Destroy(checkPulseButton.gameObject);
     }
 
     public void PlaceHandOverChest()
     {
         // trigger animation of hand placing over the chest
+        handSimulationAnimator.SetTrigger("Chest");
+        TurnOnOptions();
 
         // distroy this game object
+        Destroy(placeHandButton.gameObject);
     }
 
     public void QuizIncorrect()
     {
         // disable buttons of the quiz
+        TurnOffOptions();
 
         // activate button to try again
 
