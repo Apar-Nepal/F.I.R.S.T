@@ -7,21 +7,31 @@ public class SimulationPlayerController : MonoBehaviour
 {
     bool startCPRBtn;
     bool FirstPress;
+    bool testCPR = true;
+    bool startGameBool = false;
 
     int numOfChestCompresssion;
     int totalChestCompression;
     int currentStepNum;
+    int waitTime;
+    int startingIn;
     float firstPressTime;
+    string quizQuestion;
 
     public Animator handSimulationAnimator;
     public Animator victimSimulationAnimator;
 
     public GameObject checkPulseButton;
     public GameObject placeHandButton;
-    public GameObject cprButton;
-    public GameObject option1;
-    public GameObject option2;
-    public GameObject option3;
+    public GameObject cprTestButton;
+    public GameObject cprGameButton;
+    public GameObject firstQuiz;
+    public GameObject secondQuiz;
+    public GameObject thirdQuiz;
+    public GameObject forthQuiz;
+    public GameObject startGameButton;
+
+    public TextMeshProUGUI questionText;
 
     private void Awake()
     {
@@ -31,17 +41,22 @@ public class SimulationPlayerController : MonoBehaviour
 
         checkPulseButton.SetActive(false);
         placeHandButton.SetActive(false);
-        cprButton.SetActive(false);
-        option1.SetActive(true);
-        option2.SetActive(true);
-        option3.SetActive(true);
+        cprTestButton.SetActive(false);
+        firstQuiz.SetActive(true);
+        secondQuiz.SetActive(false);
+        thirdQuiz.SetActive(false);
+        forthQuiz.SetActive(false);
+        startGameButton.SetActive(false);
+        cprGameButton.SetActive(false);
+
+        questionText.text = "What Should be the first step when the victim is unresponsive?";
     }
 
     private void Update()
     {
 
         // check total number of compression
-        if ((Time.time - firstPressTime) == 18f)
+        if (((int)(Time.time - firstPressTime) == 9) && startCPRBtn)
         {
             if (totalChestCompression > 35 || totalChestCompression < 25)
             {
@@ -60,9 +75,129 @@ public class SimulationPlayerController : MonoBehaviour
                 Debug.Log("3 star");
             }
         }
+
+        if (startGameBool)
+        {
+            if ((startingIn - (int)Time.time) > 0)
+            {
+                questionText.text = "" + (startingIn - (int)Time.time);
+            }
+            
+        }
     }
 
     // chest function
+ 
+
+    public void QuizCorrect()
+    {
+        // check step num
+        if (currentStepNum == 1)
+        {
+            // turn on button to check pulse
+            checkPulseButton.SetActive(true);
+
+            // check pulse text
+            questionText.text = "Press on the button to check the pulse of the victim";
+
+            currentStepNum++;
+
+            // first quiz
+            Destroy(firstQuiz.gameObject);
+        }
+        else if (currentStepNum == 2)
+        {
+            // place hand over the chest text
+            questionText.text = "Press on the button to place hand on chest";
+
+            // turn on the button to place hand over the chest
+            placeHandButton.SetActive(true);
+
+            currentStepNum++;
+
+            // destroy quiz buttons
+            Destroy(secondQuiz.gameObject);
+        }
+        else if(currentStepNum == 3)
+        {
+            questionText.text = "what should be the depth of chest compression";
+
+            currentStepNum++;
+
+            forthQuiz.SetActive(true);
+
+            Destroy(thirdQuiz.gameObject);
+        }
+        else
+        {
+            quizQuestion = "Pressing on button gives one compression to victim. Press button on correct interval to do chest compression";
+
+            questionText.text = quizQuestion;
+
+            currentStepNum++;
+
+            StartCoroutine(WaitForAnimation(cprTestButton, quizQuestion, 1));
+
+            Destroy(forthQuiz.gameObject);
+        }
+    }
+
+    public void CheckPulse()
+    {
+        // trigger the animation of checking pulse
+        handSimulationAnimator.SetTrigger("Check");
+
+        // distroy this button
+        Destroy(checkPulseButton.gameObject);
+
+        quizQuestion = "What should be the hand position for the Adult??";
+        StartCoroutine(WaitForAnimation(secondQuiz, quizQuestion, 1));
+    }
+
+    public void PlaceHandOverChest()
+    {
+        // trigger animation of hand placing over the chest
+        handSimulationAnimator.SetTrigger("Chest");
+
+        // distroy this game object
+        Destroy(placeHandButton.gameObject);
+
+        quizQuestion = "What sould be the compression rate for the cpr?";
+        StartCoroutine(WaitForAnimation(thirdQuiz, quizQuestion, 2));
+    }
+
+    public void TestChestCompression()
+    {
+        if (testCPR)
+        {
+            handSimulationAnimator.SetTrigger("Compress");
+            victimSimulationAnimator.SetTrigger("Compress");
+        }
+
+        if (currentStepNum == 5)
+        {
+            quizQuestion = "Press Start Button when ready to start the game";
+
+            StartCoroutine(WaitForAnimation(startGameButton, quizQuestion, 4));
+
+            currentStepNum++;
+        }
+    }
+
+    public void StartGame()
+    {
+        quizQuestion = "GO!!!";
+
+        startGameBool = true;
+        startingIn = (int)Time.time + 3;
+
+        StartCoroutine(WaitForAnimation(cprGameButton, quizQuestion, 4));
+
+        Destroy(cprTestButton.gameObject);
+        //Destroy(startGameButton.gameObject);
+    }
+
+    // Actual game for chest compression
     public void ChestPress()
     {
 
@@ -87,77 +222,16 @@ public class SimulationPlayerController : MonoBehaviour
 
     }
 
-    void TurnOnOptions()
+    IEnumerator WaitForAnimation(GameObject quizNo, string quizQuestion, int waitTime)
     {
-        option1.SetActive(true);
-        option2.SetActive(true);
-        option3.SetActive(true);
-    }
-
-    void TurnOffOptions()
-    {
-        option1.SetActive(false);
-        option2.SetActive(false);
-        option3.SetActive(false);
-    }
-
-    public void QuizCorrect()
-    {
-        // check step num
-        if (currentStepNum == 1)
-        {
-            // first quiz
-            TurnOffOptions();
-
-            // turn on button to check pulse
-            checkPulseButton.SetActive(true);
-
-            // check pulse
-
-            currentStepNum++;
-        }
-        else if (currentStepNum == 2)
-        {
-            TurnOffOptions();
-
-            // turn on the button to place hand over the chest
-            placeHandButton.SetActive(true);
-
-            currentStepNum++;
-        }
-        else
-        {
-            TurnOffOptions();
-
-            // turn on CPRButton
-            cprButton.SetActive(true);
-        }
-    }
-
-    public void CheckPulse()
-    {
-        // trigger the animation of checking pulse
-        handSimulationAnimator.SetTrigger("Check");
-        TurnOnOptions();
-
-        // distroy this button
-        Destroy(checkPulseButton.gameObject);
-    }
-
-    public void PlaceHandOverChest()
-    {
-        // trigger animation of hand placing over the chest
-        handSimulationAnimator.SetTrigger("Chest");
-        TurnOnOptions();
-
-        // distroy this game object
-        Destroy(placeHandButton.gameObject);
+        yield return new WaitForSeconds(waitTime);
+        quizNo.SetActive(true);
+        questionText.text = quizQuestion;
     }
 
     public void QuizIncorrect()
     {
         // disable buttons of the quiz
-        TurnOffOptions();
 
         // activate button to try again
 
@@ -182,10 +256,5 @@ public class SimulationPlayerController : MonoBehaviour
         {
             Debug.Log("perfect");
         }
-    }
-
-    void CheckCompressionRate()
-    {
-        
     }
 }
