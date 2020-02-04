@@ -39,7 +39,7 @@ public class AnimationController : MonoBehaviour
 
         counter = 0;
 
-        chestAnchor.GetComponent<CapsuleCollider>().enabled = false;
+        DisableChestAnchor();
 
         handPositionCPR.SetActive(false);
     }

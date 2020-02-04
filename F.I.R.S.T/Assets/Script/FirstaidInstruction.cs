@@ -11,11 +11,11 @@ public class FirstaidInstruction : MonoBehaviour
     public GameObject responderPant;
     public GameObject victimModel;
     public GameObject chestAnchor;
+    public GameObject drowningModel;
     #endregion
 
     #region Instruction
     public TextMeshPro instructionText;
-    public GameObject drowningImage;
 
     public GameObject callEmergencyNumber;
     #endregion
@@ -24,31 +24,36 @@ public class FirstaidInstruction : MonoBehaviour
 
     public GameObject animationController;
 
+    public GameObject pointer;
+
     void Start()
     {
         responderModel.GetComponent<SkinnedMeshRenderer>().enabled = false;
         responderPant.GetComponent<SkinnedMeshRenderer>().enabled = false;
         victimModel.GetComponent<SkinnedMeshRenderer>().enabled = false;
         chestAnchor.GetComponent<CapsuleCollider>().enabled = false;
+        drowningModel.SetActive(true);
 
         callEmergencyNumber.SetActive(false);
 
         //start coroutine
-        StartCoroutine(DrowningImage());
+        StartCoroutine(WaitForDrowning());
     }
 
-    IEnumerator DrowningImage()
+    IEnumerator WaitForDrowning()
     {
-        yield return new WaitForSeconds(5);
-        
-        drowningImage.GetComponent<MeshRenderer>().enabled = false;
+        yield return new WaitForSeconds(5f);
+
+        Destroy(drowningModel.gameObject);
+
         responderModel.GetComponent<SkinnedMeshRenderer>().enabled = true;
         responderPant.GetComponent<SkinnedMeshRenderer>().enabled = true;
         victimModel.GetComponent<SkinnedMeshRenderer>().enabled = true;
-        
 
         instructionText.text = "Call emergency on 112 for ambulance";
         callEmergencyNumber.SetActive(true);
+        pointer.SetActive(true);
+
     }
 
     public void CallEmergencyNumber()
@@ -57,6 +62,8 @@ public class FirstaidInstruction : MonoBehaviour
         StartCoroutine(CheckHeartbeat());
         callEmergencyNumber.SetActive(false);
         soundManager.CheckHeartBeatAudio();
+
+        chestAnchor.GetComponent<CapsuleCollider>().enabled = true;
     }
 
     IEnumerator CheckHeartbeat()

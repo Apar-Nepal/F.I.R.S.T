@@ -25,7 +25,7 @@ public class SoundManager : MonoBehaviour
 
     IEnumerator CallAmbulance()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(8);
         source.Play();
     }
 
