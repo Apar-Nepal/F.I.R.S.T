@@ -13,11 +13,13 @@ public class SoundManager : MonoBehaviour
     public AudioClip startCpr2;
     public AudioClip heartBeat;
     public AudioClip ambulance;
+    public AudioClip entryAudio;
 
     // Start is called before the first frame update
     void Start()
     {
-        source.clip = callAmbulance;
+        source.clip = entryAudio;
+        source.Play();
 
         StartCoroutine(CallAmbulance());
 
@@ -26,6 +28,7 @@ public class SoundManager : MonoBehaviour
     IEnumerator CallAmbulance()
     {
         yield return new WaitForSeconds(8);
+        source.clip = callAmbulance;
         source.Play();
     }
 

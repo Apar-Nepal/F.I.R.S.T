@@ -45,7 +45,6 @@ public class AnimationController : MonoBehaviour
     }
 
 
-
     public void CheckBreathing()
     {
         if (counter == 1)
