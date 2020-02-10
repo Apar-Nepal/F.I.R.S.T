@@ -50,7 +50,12 @@ public class FirstaidInstruction : MonoBehaviour
         responderPant.GetComponent<SkinnedMeshRenderer>().enabled = true;
         victimModel.GetComponent<SkinnedMeshRenderer>().enabled = true;
 
-        instructionText.text = "Call emergency on 112 for ambulance";
+        if (PlayerPrefs.GetInt("currentLang") == 0)
+        {
+            instructionText.text = "PDa'n]G;nfO{ af]npg !!@ df sn ug{'xf];";
+        }
+        else
+            instructionText.text = "Call emergency on 112 for ambulance";
         callEmergencyNumber.SetActive(true);
         pointer.SetActive(true);
 
@@ -58,7 +63,12 @@ public class FirstaidInstruction : MonoBehaviour
 
     public void CallEmergencyNumber()
     {
-        instructionText.text = "Calling Emergency number";
+        if (PlayerPrefs.GetInt("currentLang") == 0)
+        {
+            instructionText.text = "cfsl:ds gDa/df sn ul/b}";
+        }
+        else
+            instructionText.text = "Calling Emergency number";
         StartCoroutine(CheckHeartbeat());
         callEmergencyNumber.SetActive(false);
         soundManager.CheckHeartBeatAudio();
@@ -69,7 +79,12 @@ public class FirstaidInstruction : MonoBehaviour
     IEnumerator CheckHeartbeat()
     {
         yield return new WaitForSeconds(3);
-        instructionText.text = ("press on chest to check heartbeat. If CPR is needed get ready for CPR by clasping hand over chest area as shown.");
+        if (PlayerPrefs.GetInt("currentLang") == 0)
+        {
+            instructionText.text = "d'6'sf] w8sg hfFr ug{sf] nfuL 5ftLdf lyRg'xf];. olb ;LkLcf/ cfjZos k/]df,  tkfO{+sf] xft la/fdLsf] 5ftL dfly tn b]vfO{Psf] kf/fn] /Vg'xf];";
+        }
+        else
+            instructionText.text = ("press on chest to check heartbeat. If CPR is needed get ready for CPR by clasping hand over chest area as shown.");
 
         
         animationController.GetComponent<AnimationController>().EnableChestAnchor();

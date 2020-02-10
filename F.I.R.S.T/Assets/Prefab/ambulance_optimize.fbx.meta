@@ -14,7 +14,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: ambulance_tga1.001
-    second: {fileID: 2100000, guid: 0ee5697f202e53d40ae516e62345cb28, type: 2}
+    second: {fileID: 2100000, guid: cc95076bfb3b76e44b78f90842180d44, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

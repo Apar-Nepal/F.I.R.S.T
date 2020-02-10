@@ -13,9 +13,17 @@ public class AnimationController : MonoBehaviour
     public GameObject heartBeatMeter;
     public GameObject backButton;
     public GameObject handPositionCPR;
+    public GameObject ambulance;
 
     // Button Click counter
     int counter;
+
+    // 0 for Nepali and 1 for english Language Index
+    int langIndex;
+
+    // Fonts
+    public TMP_FontAsset nepali;
+    public TMP_FontAsset english;
 
     // animators
     Animator responderAnim;
@@ -39,9 +47,15 @@ public class AnimationController : MonoBehaviour
 
         counter = 0;
 
+        langIndex = PlayerPrefs.GetInt("currentLang");
+
         DisableChestAnchor();
 
         handPositionCPR.SetActive(false);
+
+        instructionText.GetComponent<TextMeshPro>().font = nepali;
+
+        ambulance.SetActive(false);
     }
 
 
@@ -89,8 +103,12 @@ public class AnimationController : MonoBehaviour
 
         // add 10 sec delay while playing the heart beat sound
         StartCoroutine(PositionHands());
-
-        instructionText.text = "Click on chest to start CPR";
+        if (langIndex == 0)
+        {
+            instructionText.text = "l;lkcf ;'? ug{sf nflu 5ftLdf lyRg'xf]";
+        }
+        else
+            instructionText.text = "Click on chest to start CPR";
     }
 
 
@@ -134,7 +152,14 @@ public class AnimationController : MonoBehaviour
 
         handPositionCPR.SetActive(false);
 
+        ambulance.SetActive(true);
+
         backButton.SetActive(true);
-        instructionText.text = "Congratulation! You have successfully completed the training and can save people.";
+        if (langIndex == 0)
+        {
+            instructionText.text = "awfO{ 5, tkfO{+n] k|lzIf0f k'/f ug{' ePsf] 5.";
+        }
+        else
+            instructionText.text = "Congratulation! You have successfully completed the training and can save people.";
     }
 }
