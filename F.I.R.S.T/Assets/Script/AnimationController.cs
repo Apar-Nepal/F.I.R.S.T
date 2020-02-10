@@ -52,8 +52,14 @@ public class AnimationController : MonoBehaviour
         DisableChestAnchor();
 
         handPositionCPR.SetActive(false);
-
-        instructionText.GetComponent<TextMeshPro>().font = nepali;
+        if (langIndex == 0)
+        {
+            instructionText.GetComponent<TextMeshPro>().font = nepali;
+        }
+        else
+        {
+            instructionText.GetComponent<TextMeshPro>().font = english;
+        }
 
         ambulance.SetActive(false);
     }
@@ -108,7 +114,9 @@ public class AnimationController : MonoBehaviour
             instructionText.text = "l;lkcf ;'? ug{sf nflu 5ftLdf lyRg'xf]";
         }
         else
+        {
             instructionText.text = "Click on chest to start CPR";
+        }
     }
 
 

@@ -3827,7 +3827,7 @@ MonoBehaviour:
   handPositionCPR: {fileID: 1141761425524543175}
   ambulance: {fileID: 220985316}
   nepali: {fileID: 11400000, guid: 0020a9288c5a60d43a81ada0ce6cf002, type: 2}
-  english: {fileID: 0}
+  english: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   chestAnchor: {fileID: 55840820}
   instructionText: {fileID: 1077396364}
   soundManager: {fileID: 1276791311}

@@ -55,7 +55,9 @@ public class FirstaidInstruction : MonoBehaviour
             instructionText.text = "PDa'n]G;nfO{ af]npg !!@ df sn ug{'xf];";
         }
         else
+        {
             instructionText.text = "Call emergency on 112 for ambulance";
+        }
         callEmergencyNumber.SetActive(true);
         pointer.SetActive(true);
 
