@@ -238,7 +238,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ea888504deb9c1a4b99e7313485f5f8e, type: 2}
+  - {fileID: 2100000, guid: 0ee5697f202e53d40ae516e62345cb28, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2260,9 +2260,14 @@ MonoBehaviour:
   victimSimulationAnimator: {fileID: 1506251805}
   checkPulseButton: {fileID: 2071108409}
   placeHandButton: {fileID: 906093497}
-  cprButton: {fileID: 876025461}
+  cprTestButton: {fileID: 0}
+  cprGameButton: {fileID: 0}
   firstQuiz: {fileID: 0}
-  quetionText: {fileID: 1804938674}
+  secondQuiz: {fileID: 0}
+  thirdQuiz: {fileID: 0}
+  forthQuiz: {fileID: 0}
+  startGameButton: {fileID: 0}
+  questionText: {fileID: 0}
 --- !u!1 &861713979
 GameObject:
   m_ObjectHideFlags: 0
