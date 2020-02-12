@@ -60,19 +60,20 @@ public class SimulationPlayerController : MonoBehaviour
         {
             if (totalChestCompression > 35 || totalChestCompression < 25)
             {
-                Debug.Log("Failed");
+                questionText.text= "Failed";
             }
             else if (totalChestCompression > 33 || totalChestCompression < 27)
             {
                 Debug.Log("1 star");
+                questionText.text = "1 star";
             }
             else if (totalChestCompression > 31 || totalChestCompression < 29)
             {
-                Debug.Log("2 star");
+                questionText.text = "2 star";
             }
             else
             {
-                Debug.Log("3 star");
+                questionText.text = "3 star";
             }
         }
 
