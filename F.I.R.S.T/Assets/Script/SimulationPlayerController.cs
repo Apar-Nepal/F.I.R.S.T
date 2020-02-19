@@ -15,6 +15,8 @@ public class SimulationPlayerController : MonoBehaviour
     int currentStepNum;
     int waitTime;
     int startingIn;
+    int perfectNum;
+    int timerNum;
     float firstPressTime;
     string quizQuestion;
 
@@ -30,7 +32,9 @@ public class SimulationPlayerController : MonoBehaviour
     public GameObject thirdQuiz;
     public GameObject forthQuiz;
     public GameObject startGameButton;
-
+    public GameObject tryAgainButton;
+    
+    public TextMeshProUGUI timerText;
     public TextMeshProUGUI questionText;
 
     private void Awake()
@@ -48,6 +52,7 @@ public class SimulationPlayerController : MonoBehaviour
         forthQuiz.SetActive(false);
         startGameButton.SetActive(false);
         cprGameButton.SetActive(false);
+        tryAgainButton.SetActive(false);
 
         questionText.text = "What Should be the first step when the victim is unresponsive?";
     }
@@ -58,16 +63,18 @@ public class SimulationPlayerController : MonoBehaviour
         // check total number of compression
         if (((int)(Time.time - firstPressTime) == 9) && startCPRBtn)
         {
-            if (totalChestCompression > 35 || totalChestCompression < 25)
+            cprGameButton.SetActive(false);
+            if ((totalChestCompression > 35 || totalChestCompression < 25) && perfectNum <= 3)
             {
                 questionText.text= "Failed";
+                tryAgainButton.SetActive(true);
             }
-            else if (totalChestCompression > 33 || totalChestCompression < 27)
+            else if ((totalChestCompression > 33 || totalChestCompression < 27) && perfectNum <= 5)
             {
                 Debug.Log("1 star");
                 questionText.text = "1 star";
             }
-            else if (totalChestCompression > 31 || totalChestCompression < 29)
+            else if ((totalChestCompression > 31 || totalChestCompression < 29) && perfectNum <= 6)
             {
                 questionText.text = "2 star";
             }
@@ -79,11 +86,19 @@ public class SimulationPlayerController : MonoBehaviour
 
         if (startGameBool)
         {
-            if ((startingIn - (int)Time.time) > 0)
+            timerNum = startingIn + 9 -(int)Time.time;
+            if ((startingIn - (int)Time.time) >= 0)
             {
                 questionText.text = "" + (startingIn - (int)Time.time);
             }
-            
+            if (timerNum >= 0 || timerNum <= 9)
+            {
+                timerText.text = "" + timerNum;
+            }
+            else if (timerNum <= 0)
+            {
+                timerText.text = "" ;
+            }
         }
     }
 
@@ -179,7 +194,7 @@ public class SimulationPlayerController : MonoBehaviour
         {
             quizQuestion = "Press Start Button when ready to start the game";
 
-            StartCoroutine(WaitForAnimation(startGameButton, quizQuestion, 4));
+            StartCoroutine(WaitForAnimation(startGameButton, quizQuestion, 3));
 
             currentStepNum++;
         }
@@ -189,12 +204,15 @@ public class SimulationPlayerController : MonoBehaviour
     {
         quizQuestion = "GO!!!";
 
-        startGameBool = true;
-        startingIn = (int)Time.time + 3;
+        perfectNum = 0;
 
-        StartCoroutine(WaitForAnimation(cprGameButton, quizQuestion, 4));
+        //startGameBool = true;
+        //startingIn = (int)Time.time + 3;
+
+        StartCoroutine(WaitForAnimation(cprGameButton, quizQuestion, 1));
 
         Destroy(cprTestButton.gameObject);
+        Destroy(startGameButton.gameObject);
         //Destroy(startGameButton.gameObject);
     }
 
@@ -210,6 +228,9 @@ public class SimulationPlayerController : MonoBehaviour
         }
         FirstPress = false;
 
+        startGameBool = true;
+        startingIn = (int)Time.time + 3;
+
         numOfChestCompresssion++;
         totalChestCompression++;
         if (startCPRBtn)
@@ -219,7 +240,7 @@ public class SimulationPlayerController : MonoBehaviour
         }
 
         handSimulationAnimator.SetTrigger("Compress");
-        victimSimulationAnimator.SetTrigger("chestPressure");
+        victimSimulationAnimator.SetTrigger("Compress");
 
     }
 
@@ -233,8 +254,31 @@ public class SimulationPlayerController : MonoBehaviour
     public void QuizIncorrect()
     {
         // disable buttons of the quiz
+        if (firstQuiz != null)
+        {
+            firstQuiz.SetActive(false);
+        }
+        
+        if (secondQuiz != null)
+        {
+            secondQuiz.SetActive(false);
+        }
+
+        if (thirdQuiz != null)
+        {
+            thirdQuiz.SetActive(false);
+        }
+        
+        if (forthQuiz != null)
+        {
+            forthQuiz.SetActive(false);
+        }
+        
+
+        questionText.text = "Failed!!! Try again.";
 
         // activate button to try again
+        tryAgainButton.SetActive(true);
 
         // activate wrong option
     }
@@ -247,15 +291,17 @@ public class SimulationPlayerController : MonoBehaviour
         numOfChestCompresssion = 0;
         if (numOfChestCompresssion < 5)
         {
-            Debug.Log("too slow");
+            questionText.text = "Too slow";
         }
         else if (numOfChestCompresssion>5)
         {
-            Debug.Log("Too Fast");
+            questionText.text = "Too fast";
         }
         else
         {
-            Debug.Log("perfect");
+            questionText.text = "Perfect";
+
+            perfectNum++;
         }
     }
 }

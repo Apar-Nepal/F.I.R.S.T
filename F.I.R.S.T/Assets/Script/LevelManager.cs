@@ -16,4 +16,9 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene("DrowningCPR");
     }
+
+    public void SceneReload()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Home.unity
     guid: 68f9d2185fd9d7f4bbb34b0bba82561e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DrowningCPR.unity
     guid: 7c89a726dfaa07a4cb457f2ed52afb5f
   - enabled: 0
-    path: Assets/Scenes/UIedit.unity
-    guid: 7b57d3893fec2df479cd5547b37deb49
-  - enabled: 0
     path: Assets/Scenes/test_room.unity
     guid: 904ed301e64211d448446447cf760bf5
+  - enabled: 1
+    path: Assets/Scenes/CprRateTest 1.unity
+    guid: 34f0ffcb96c3ce74fa57a00ae65ff979
   m_configObjects: {}
