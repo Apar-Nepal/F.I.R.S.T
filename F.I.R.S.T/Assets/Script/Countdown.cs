@@ -46,7 +46,6 @@ public class Countdown : MonoBehaviour {
             text.text = minute + " : " + second;
         }
 
-        beep();
 	}
 
     public void beep()

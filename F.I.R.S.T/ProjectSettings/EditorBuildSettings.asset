@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/test_room.unity
     guid: 904ed301e64211d448446447cf760bf5
   - enabled: 1
-    path: Assets/Scenes/CprRateTest 1.unity
+    path: Assets/Scenes/DrowningSimulation.unity
     guid: 34f0ffcb96c3ce74fa57a00ae65ff979
   m_configObjects: {}

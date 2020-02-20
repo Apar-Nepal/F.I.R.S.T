@@ -33,6 +33,7 @@ public class SimulationPlayerController : MonoBehaviour
     public GameObject forthQuiz;
     public GameObject startGameButton;
     public GameObject tryAgainButton;
+    public SoundManager soundManager;
     
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI questionText;
@@ -162,6 +163,7 @@ public class SimulationPlayerController : MonoBehaviour
     {
         // trigger the animation of checking pulse
         handSimulationAnimator.SetTrigger("Check");
+        soundManager.HeartBeat();
 
         // distroy this button
         Destroy(checkPulseButton.gameObject);
