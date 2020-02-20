@@ -33,7 +33,8 @@ public class SimulationPlayerController : MonoBehaviour
     public GameObject forthQuiz;
     public GameObject startGameButton;
     public GameObject tryAgainButton;
-    public SoundManager soundManager;
+    public AudioSource Asource;
+    public AudioClip heartbeat;
     
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI questionText;
@@ -163,13 +164,22 @@ public class SimulationPlayerController : MonoBehaviour
     {
         // trigger the animation of checking pulse
         handSimulationAnimator.SetTrigger("Check");
-        soundManager.HeartBeat();
+
+        Asource.clip = heartbeat;
+        Asource.Play();
+        StartCoroutine(stopLoop());
 
         // distroy this button
         Destroy(checkPulseButton.gameObject);
 
         quizQuestion = "What should be the hand position for the Adult??";
         StartCoroutine(WaitForAnimation(secondQuiz, quizQuestion, 1));
+    }
+
+    IEnumerator stopLoop()
+    {
+        yield return new WaitForSeconds(10);
+        Asource.loop = false;
     }
 
     public void PlaceHandOverChest()
@@ -206,6 +216,9 @@ public class SimulationPlayerController : MonoBehaviour
     {
         quizQuestion = "GO!!!";
 
+        startGameBool = true;
+        startingIn = (int)Time.time + 3;
+
         perfectNum = 0;
 
         //startGameBool = true;
@@ -230,8 +243,7 @@ public class SimulationPlayerController : MonoBehaviour
         }
         FirstPress = false;
 
-        startGameBool = true;
-        startingIn = (int)Time.time + 3;
+        
 
         numOfChestCompresssion++;
         totalChestCompression++;

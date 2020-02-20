@@ -17040,7 +17040,8 @@ MonoBehaviour:
   forthQuiz: {fileID: 1458735854}
   startGameButton: {fileID: 624626263}
   tryAgainButton: {fileID: 1352703139}
-  soundManager: {fileID: 2089252750}
+  Asource: {fileID: 2089252749}
+  heartbeat: {fileID: 0}
   timerText: {fileID: 1675343233}
   questionText: {fileID: 134352040}
 --- !u!114 &2089252748 stripped
@@ -17069,7 +17070,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -17151,27 +17152,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2089252750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2089252746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 619669e772a10c8409968e466fdd6683, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  source: {fileID: 2089252749}
-  callAmbulance: {fileID: 8300000, guid: f91ec5faf56350b47b115afa002ab434, type: 3}
-  breathChecking: {fileID: 8300000, guid: 3713f4dab17fe4d43ac1effeb655bf1f, type: 3}
-  breathChecking2: {fileID: 8300000, guid: 1c1530e2b91f6544eb833fb7f0765c9a, type: 3}
-  startCpr: {fileID: 8300000, guid: aa3a499dce6d59f4ab3262e7b1887387, type: 3}
-  startCpr2: {fileID: 8300000, guid: 854e65a3b84335043a5ca9ad99226bbd, type: 3}
-  heartBeat: {fileID: 8300000, guid: 126af5c235df2614689817df74687609, type: 3}
-  ambulance: {fileID: 8300000, guid: 919e8f72c0f537a4eab145a7df2f784e, type: 3}
-  entryAudio: {fileID: 8300000, guid: 2867f42c69e19494f9e0ebfab80f9cec, type: 3}
 --- !u!1 &2096835498
 GameObject:
   m_ObjectHideFlags: 0
